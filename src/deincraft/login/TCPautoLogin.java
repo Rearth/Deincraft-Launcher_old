@@ -12,7 +12,7 @@ public class TCPautoLogin extends Thread {
 public static String Username;
 public static String Password;
 public static boolean enabled;
-static boolean firstrun = false;
+static boolean firstrun = true;
 
     public void run()
     {

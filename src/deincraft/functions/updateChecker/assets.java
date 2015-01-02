@@ -13,6 +13,7 @@ import static deincraft.util.Path.DCpath;
 import deincraft.util.Text;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 
 /**
@@ -30,8 +31,13 @@ public class assets {
         if(!newassetsversion.equals(installedassetsversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
             Download.main("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1", DCpath() + "assets.zip", true);
-            ZipArchiveExtractor.main(DCpath() + "assets.zip",DCpath());
-            Text.write(assetsVersion.toString(), newassetsversion);
+            if (Download.verify(new URL("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1") , DCpath() + "assets.zip") == true){
+                ZipArchiveExtractor.main(DCpath() + "assets.zip",DCpath());
+                Text.write(assetsVersion.toString(), newassetsversion);
+            } else {
+                System.out.println("Download assets vehlgeschlagen.");
+                System.exit(9);
+            }
         }
     }
 }

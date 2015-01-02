@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Florian
@@ -45,9 +46,22 @@ public class wp_login {
         writer.close();
         reader.close();
         if (result.contains("FEHLER")) {
+            if (result.contains("Dein Benutzerkonto wurde nicht aktiviert")) {
+                JOptionPane.showMessageDialog(null, "Du musst erst die E-Mail bestätigen. \n\rAuf http://www.deincraft-tekkit.tk/login kannst du die E-Mail erneut senden Lassen. \r\nFals es Probleme mit der Aktivierung geben Sollte, melde nich Bitte bei und auf unserem Teamspeak Server. Oder sende uns eine E-mail", "Login Fehler", JOptionPane.OK_CANCEL_OPTION);   
+            } else if (result.contains("Das Passwort, das du für den")) {
+                JOptionPane.showMessageDialog(null, "Das eigegebene Passwort ist Falsch", "Login Fehler", JOptionPane.OK_CANCEL_OPTION);   
+            } else if (result.contains("Ungültiger Benutzername")) {
+                JOptionPane.showMessageDialog(null, "Ungültiger Benutzername", "Login Fehler", JOptionPane.OK_CANCEL_OPTION);   
+            } else if (result.contains("Dein Benutzerkonto wurde als Spammer gekennzeichnet.")) {
+                JOptionPane.showMessageDialog(null, "Dieser Account wurde gesperrt.", "Login Fehler", JOptionPane.OK_CANCEL_OPTION); 
+            } else {
+                JOptionPane.showMessageDialog(null, "Unbekannter Login Fehler. \n\rMögliche ursachen: keine internet Verbindung oder deincraft ist derzeit offline.", "Login Fehler", JOptionPane.OK_CANCEL_OPTION); 
+            }
+            result = null;
             System.out.println("Fehler beim login");
             return false;
         } else {
+            result = null;
             System.out.println("Erfolgreich eingeloggt");
             return true;
         }

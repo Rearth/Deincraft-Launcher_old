@@ -7,15 +7,9 @@ package deincraft.other;
 
 import static deincraft.util.Path.DCpath;
 import deincraft.util.Text;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -38,7 +32,7 @@ public class setname {
             JOptionPane.showMessageDialog(null, "Bitte gib zuerst ein Passwort ein", "Passwort", JOptionPane.OK_CANCEL_OPTION);
         } else {
             if (deincraft.auth.wp_login.main(Username, Passwort) == false) {
-                JOptionPane.showMessageDialog(null, "Passwort nicht Richtig", "Login Fehler", JOptionPane.OK_CANCEL_OPTION);   
+                //JOptionPane.showMessageDialog(null, "Passwort nicht Richtig", "Login Fehler", JOptionPane.OK_CANCEL_OPTION);   
             } else {
                 try {
                     Text.write(DCpath() + "launcher/username.txt", Username);

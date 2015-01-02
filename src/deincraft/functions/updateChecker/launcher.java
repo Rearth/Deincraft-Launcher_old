@@ -7,16 +7,10 @@ package deincraft.functions.updateChecker;
 
 import deincraft.functions.linkToString;
 import deincraft.other.Download;
-import deincraft.other.ZipArchiveExtractor;
-import deincraft.start.startargs;
 import deincraft.util.OperatingSystem;
 import static deincraft.util.Path.DCpath;
-import deincraft.util.Text;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  *
@@ -25,7 +19,7 @@ import java.nio.file.Paths;
 public class launcher {
     public static void main(String[] Args) throws IOException, Exception {
         String newlauncherversion = linkToString.download("https://www.dropbox.com/s/gkd2revodu5axw4/launcher-version.txt?dl=1");
-        String installedlauncherversion = "2.0.0.52";
+        String installedlauncherversion = "2.0.0.60";
         System.out.println(installedlauncherversion);
         if(!newlauncherversion.equals(installedlauncherversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.

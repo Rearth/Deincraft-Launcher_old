@@ -6,6 +6,7 @@
 package deincraft.functions.updateChecker;
 
 import deincraft.functions.linkToString;
+import static deincraft.other.Deletedir.deleteDirectory;
 import deincraft.other.Download;
 import deincraft.other.ZipArchiveExtractor;
 import static deincraft.util.Path.DCpath;
@@ -28,8 +29,11 @@ public class gamedata {
         if(!newgamedataversion.equals(installedgamedataversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
             Download.main("https://www.dropbox.com/s/wlai75m4knvml4e/gamedata.zip?dl=1", DCpath() + "gamedata.zip", true);
+            
+            File directory = new File(DCpath() + "modpacks/tekkitmain/mods");
+            deleteDirectory(new File(DCpath() + "modpacks/tekkitmain/mods"));
             ZipArchiveExtractor.main(DCpath() + "gamedata.zip",DCpath());
             Text.write(gamedataVersion.toString(), newgamedataversion);
         }
-    }
+    }    
 }

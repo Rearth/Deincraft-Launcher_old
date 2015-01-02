@@ -24,24 +24,30 @@ import javax.swing.JFrame;
 public class Download {
     public static void main(String link, String ZielOrt, Boolean Show) throws Exception {
             Download.downloader (new URL(link),ZielOrt,Show);
-            
     }
-    
+  
+
     public static void downloader (URL link, String ZielOrt, Boolean Show) throws Exception {
         
             float test = 1;
             float test2 = 1024;
             float gesamt = 0;
             float gesamt2 = 0;
+            int gesamt3;
+            
 
-            JFrame fenster = new JFrame("Downloading");
+           
+            JFrame fenster = new JFrame("Downloading"); 
             fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            fenster.setSize(600, 20);
+            fenster.setSize(600, 300);
+            
+       //     fenster.pack();
+            fenster.setLocationRelativeTo(null);
             if (Show == true) {
-            fenster.setVisible(true);
-            }
-        
-            InputStream in = null;
+                fenster.setVisible(true);
+            }         
+            
+            InputStream in = null; 
         try {
             //download
             float komplettsize = link.openConnection().getContentLength();
@@ -57,8 +63,12 @@ public class Download {
                 gesamt = test / komplettsize;
                 int aktsize =  (int) test / 1000000;
                 gesamt2 = gesamt * 100;
-                System.out.println(gesamt2);
-                fenster.setTitle(gesamt2 + "%" + aktsize +"MB" + "/" + kompsize + "MB");
+                gesamt2 *= 100;
+                
+                gesamt3 = (int) gesamt2;
+                gesamt2 = gesamt3;
+                gesamt2 /= 100;
+                fenster.setTitle("Download: " + gesamt2 + "%  " + aktsize +"MB" + "/" + kompsize + "MB");
             }
             out3.close();
             in.close();
@@ -80,6 +90,10 @@ public class Download {
             }
         }
     }
+    
+    
+    
+    
     
     public static boolean verify(URL link, String file) throws IOException {
         long komplettsize = 0;

@@ -10,8 +10,6 @@ import deincraft.util.Text;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  *
@@ -23,23 +21,39 @@ public class setRAM {
         File ramfile = new File(DCpath() + "launcher/RAM.txt");
         if (ramfile.exists()) {
             RAM = Text.read(DCpath() + "launcher/RAM.txt");
-            return RAM;
-        } else {
-            long memorySize = ((com.sun.management.OperatingSystemMXBean) 
-            ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
-            long RAMinMB = memorySize / 1024 /1024; 
-            if (RAMinMB >= 8000) {
-                RAM = "3072";
-            } else if (RAMinMB >= 6000) {
-                RAM = "2048";
-            } else if (RAMinMB >= 4000) {
-                RAM = "1536";
+            if (("3072".equals(RAM)) || ("2560".equals(RAM)) || ("1024".equals(RAM)) || ("1536".equals(RAM)) || ("2048".equals(RAM))) {
+                
+                return RAM;
             } else {
-                RAM = "1024";
+                RAM = ramautoselect();
+                return RAM;  
             }
-            ramfile.createNewFile(); 
-            Text.write(DCpath() + "launcher/RAM.txt", String.valueOf(RAM));
+            
+        } else {
+            
+            RAM = ramautoselect();
+            
             return RAM;
         }
+    }
+    
+    public static String ramautoselect() throws IOException {
+        String RAM = null;
+        File ramfile = new File(DCpath() + "launcher/RAM.txt");
+        long memorySize = ((com.sun.management.OperatingSystemMXBean) 
+        ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
+        long RAMinMB = memorySize / 1024 /1024; 
+        if (RAMinMB >= 8000) {
+            RAM = "3072";
+        } else if (RAMinMB >= 6000) {
+            RAM = "2048";
+        } else if (RAMinMB >= 4000) {
+            RAM = "1536";
+        } else {
+            RAM = "1024";
+        }
+        ramfile.createNewFile(); 
+        Text.write(DCpath() + "launcher/RAM.txt", String.valueOf(RAM));
+        return RAM;
     }
 }
