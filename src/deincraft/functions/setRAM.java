@@ -10,6 +10,7 @@ import deincraft.util.Text;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,12 +18,25 @@ import java.lang.management.ManagementFactory;
  */
 public class setRAM {
     public static String main(String[] Args) throws IOException {
+        long memorySize = ((com.sun.management.OperatingSystemMXBean) 
+        ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
+        long RAMinMB = memorySize / 1024 /1024; 
+        
         String RAM;
         File ramfile = new File(DCpath() + "launcher/RAM.txt");
         if (ramfile.exists()) {
             RAM = Text.read(DCpath() + "launcher/RAM.txt");
-            if (("3072".equals(RAM)) || ("2560".equals(RAM)) || ("1024".equals(RAM)) || ("1536".equals(RAM)) || ("2048".equals(RAM))) {
-                
+            int intRAM;
+            try {
+                intRAM = Integer.parseInt(RAM); 
+            } catch (Exception e) {
+                intRAM = 0;
+            }
+
+            if ((intRAM >= 1024) && (intRAM <= RAMinMB)) {
+                if (intRAM <= 1535) {
+                    JOptionPane.showMessageDialog(null, "Wenn der eingestellte RAM unter 1536 liegt, \n\rkönnte es im Spiel ziemlich laggen.", "RAM Warnung", JOptionPane.OK_CANCEL_OPTION);
+                }
                 return RAM;
             } else {
                 RAM = ramautoselect();
@@ -46,11 +60,11 @@ public class setRAM {
         if (RAMinMB >= 8000) {
             RAM = "3072";
         } else if (RAMinMB >= 6000) {
-            RAM = "2048";
+            RAM = "2572";
         } else if (RAMinMB >= 4000) {
-            RAM = "1536";
+            RAM = "2048";
         } else {
-            RAM = "1024";
+            RAM = "1536";
         }
         ramfile.createNewFile(); 
         Text.write(DCpath() + "launcher/RAM.txt", String.valueOf(RAM));

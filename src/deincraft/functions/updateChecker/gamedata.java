@@ -28,8 +28,8 @@ public class gamedata {
         String installedgamedataversion = Text.read(gamedataVersion.toString());
         if(!newgamedataversion.equals(installedgamedataversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
-            Download.main("https://www.dropbox.com/s/wlai75m4knvml4e/gamedata.zip?dl=1", DCpath() + "gamedata.zip", true);
-            
+            Download.main("https://www.dropbox.com/s/wlai75m4knvml4e/gamedata.zip?dl=1", DCpath(), "gamedata.zip");
+            //Download.main("https://onedrive.live.com/download.aspx?resid=857343502640EB6C!680&authkey=!AHWa0Z-oYKwm9v4&ithint=file%2czip", DCpath() + "gamedata.zip", true);
             File directory = new File(DCpath() + "modpacks/tekkitmain/mods");
             deleteDirectory(new File(DCpath() + "modpacks/tekkitmain/mods"));
             ZipArchiveExtractor.main(DCpath() + "gamedata.zip",DCpath());

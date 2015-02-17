@@ -30,7 +30,8 @@ public class assets {
         String installedassetsversion = Text.read(assetsVersion.toString());
         if(!newassetsversion.equals(installedassetsversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
-            Download.main("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1", DCpath() + "assets.zip", true);
+            Download.main("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1", DCpath(), "assets.zip");
+          
             if (Download.verify(new URL("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1") , DCpath() + "assets.zip") == true){
                 ZipArchiveExtractor.main(DCpath() + "assets.zip",DCpath());
                 Text.write(assetsVersion.toString(), newassetsversion);

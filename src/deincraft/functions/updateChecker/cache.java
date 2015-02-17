@@ -27,7 +27,8 @@ public class cache {
         String installedcacheversion = Text.read(cacheVersion.toString());
         if(!newcacheversion.equals(installedcacheversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
-            Download.main("https://www.dropbox.com/s/0go8ednwi3nmpdo/cache.zip?dl=1", DCpath() + "cache.zip", true);
+            Download.main("https://www.dropbox.com/s/0go8ednwi3nmpdo/cache.zip?dl=1", DCpath(), "cache.zip");
+           // Download.main("https://onedrive.live.com/download.aspx?resid=857343502640EB6C!678&authkey=!AJukEstRLlXv9Gw&ithint=file%2czip", DCpath() + "cache.zip", true);
             ZipArchiveExtractor.main(DCpath() + "cache.zip",DCpath());
             Text.write(cacheVersion.toString(), newcacheversion);
         }

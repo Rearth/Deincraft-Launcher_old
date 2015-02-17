@@ -17,16 +17,15 @@ import java.io.IOException;
  * @author Florian
  */
 public class launcher {
+    public static String installedlauncherversion = "2.0.2.66";
     public static void main(String[] Args) throws IOException, Exception {
         String newlauncherversion = linkToString.download("https://www.dropbox.com/s/gkd2revodu5axw4/launcher-version.txt?dl=1");
-        String installedlauncherversion = "2.0.0.60";
         System.out.println(installedlauncherversion);
         if(!newlauncherversion.equals(installedlauncherversion)) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
             String jarfile = new File(launcher.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
             System.out.println(jarfile);
-            Download.main("https://www.dropbox.com/s/yy7brh9da534xp1/deincraft_tekkit_updater.jar?dl=1", DCpath() + "updater.jar", true);
-            OperatingSystem operatingSystem = OperatingSystem.getOperatingSystem();
+            Download.main("https://www.dropbox.com/s/yy7brh9da534xp1/deincraft_tekkit_updater.jar?dl=1", DCpath(), "updater.jar");
             try {
                 ProcessBuilder pb = new ProcessBuilder(OperatingSystem.getJavaDir(), "-jar", DCpath() + "updater.jar", jarfile);
                 pb.start();

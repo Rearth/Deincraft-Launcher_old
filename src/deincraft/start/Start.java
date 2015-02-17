@@ -15,7 +15,8 @@ import deincraft.util.Path;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Start
   extends Thread
@@ -28,6 +29,9 @@ public class Start
     try
     {
       OperatingSystem operatingSystem = OperatingSystem.getOperatingSystem();
+      my.JavaApplication1.DeincraftUI.Startenabled = false;
+      my.JavaApplication1.DeincraftUI.jLabel10.enable(false);
+      my.JavaApplication1.Closing.canclose = false;
       if (operatingSystem.equals(OperatingSystem.OSX))
       {
         Process p = Runtime.getRuntime().exec(new String[] { "/bin/bash", "-c", "java" + startargs.getStartArgs(username, RAM) }, null, new File(Path.DCpath() + "modpacks/tekkitmain"));
@@ -48,11 +52,14 @@ public class Start
           System.out.print((char)i);
         }
       }
+    } catch (NumberFormatException|IOException e) {
+        System.out.println(e);
+    } catch (Exception ex) {
+        Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
     }
-    catch (NumberFormatException|IOException e)
-    {
-      System.out.println(e);
-    }
+    my.JavaApplication1.DeincraftUI.Startenabled = true;
+    my.JavaApplication1.DeincraftUI.jLabel10.enable(true);
+    my.JavaApplication1.Closing.canclose = true;
   }
   
   public static void main(String[] Args)
