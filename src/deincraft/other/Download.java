@@ -20,9 +20,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import static deincraft.util.Path.DCpath;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Label;
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;
 import java.net.URLConnection;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author DavidW
@@ -48,7 +54,7 @@ public class Download {
             JFrame fenster = new JFrame("Downloading"); 
             fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             fenster.setSize(600, 300);
-            
+            System.out.println("Downloading without frame");
        //     fenster.pack();
             fenster.setLocationRelativeTo(null);
             if (Show == true) {
@@ -145,17 +151,40 @@ public class Download {
     public static void  fileUrl(String fAddress, String localFileName, String destinationDir) {
     OutputStream outStream = null;
     URLConnection  uCon = null;
-
             JFrame fenster = new JFrame("Downloading"); 
             fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            fenster.setSize(600, 300);
-            fenster.setVisible(true);
+            JPanel Panel = new javax.swing.JPanel();
+            Label LeftProg = new Label("");
+            Label RightProg = new Label("");
             float test = 1;
             float test2 = 1024;
             float gesamt = 0;
             float gesamt2 = 0;
             int gesamt3;
+            fenster.setSize(608, 80);
+            Panel.add(LeftProg);
+            Panel.add(RightProg);
+            Panel.setSize(120, 30);
+            Panel.setLocation(10, 10);
+            fenster.getContentPane().add(Panel);
+            fenster.setVisible(true);
+            LeftProg.setVisible(false);
+            RightProg.setVisible(false);
+            int leftS = 1;
+            int rightS = 570 - leftS;
+            LeftProg.setBackground(Color.green);
+            RightProg.setBackground(Color.red);
+            LeftProg.setSize(leftS,30);
+            RightProg.setSize(rightS,30);
+            LeftProg.setLocation(10, 5);
+            RightProg.setLocation( 11, 5 );
+            LeftProg.setVisible(true);
+            RightProg.setVisible(true);
             
+            RightProg.setText(" Setting Connection");
+            
+            System.out.println("Download with frame" + Panel.getLocation()+LeftProg.getLocation());
+            boolean showedname = false;
             
     InputStream is = null;
     try {
@@ -164,10 +193,11 @@ public class Download {
         int ByteRead,ByteWritten=0;
         Url = new URL(fAddress);
         outStream = new BufferedOutputStream(new FileOutputStream(destinationDir + "/" + localFileName));
-
+        
         uCon = Url.openConnection();
         is = uCon.getInputStream();
         float komplettsize = Url.openConnection().getContentLength();
+        String filename = "Unbekannt";
         int kompsize = (int) komplettsize / 1048576;
         
         buf = new byte[size];
@@ -185,7 +215,31 @@ public class Download {
                 gesamt3 = (int) gesamt2;
                 gesamt2 = gesamt3;
                 gesamt2 /= 100;
-                fenster.setTitle("Download: " + gesamt2 + "%  " + aktsize +"MB" + "/" + kompsize + "MB");
+                fenster.setTitle("Download: " + (int)gesamt2 + "%  " + aktsize +"MB" + "/" + kompsize + "MB");
+                
+                leftS = (int)gesamt2 * 6;
+                if ( leftS >= 599) {
+                    leftS = 600;
+                }
+                LeftProg.setSize(leftS,30);
+                RightProg.setSize(570 - leftS,30);
+                if (showedname == false ){
+                    String raw = Url.openConnection().getHeaderField("Content-Disposition");
+                    // raw = "attachment; filename=abc.jpg"
+                    if(raw != null && raw.contains("=")) {
+                        filename = raw.split("=")[1];
+                        filename = filename.split(";")[0];
+                    } else {
+                        filename = "Unbekannt";
+                    }
+                    showedname = true;
+                    System.out.println(filename);
+                    RightProg.setText("                                                                                                Datei: " + filename);
+                }
+                if (leftS >= 300) {
+                    RightProg.setText("");
+                    LeftProg.setText("Datei: " + filename);
+                }
             
         }
         System.out.println("Downloaded Successfully.");
@@ -225,6 +279,12 @@ public class Download {
     public static void main(String[] args){
             //fileDownload("https://www.dropbox.com/s/awcsm8ccwwf8y0z/assets.zip?dl=1",DCpath(), "assets3.zip");
     fileDownload(args[0], args[1], args[2]);
+    }
+    
+    
+    public static void setframe(String Args){
+        
+        
     }
 }
 
