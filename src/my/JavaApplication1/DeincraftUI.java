@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
@@ -27,6 +28,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -37,6 +40,9 @@ public class DeincraftUI extends javax.swing.JFrame {
     public static String Password;
     public static boolean Startenabled = true;
     String RAM;
+        boolean Optifineon;
+        boolean DualhotBaron;
+        boolean Shaderon;
 
     /**
      * Creates new form DeincraftUI
@@ -81,49 +87,6 @@ public class DeincraftUI extends javax.swing.JFrame {
             jPanel1.setLocation(221,272);
             jPanel1.setVisible(true);
         }
-  //      BufferedReader reader = null;
-   /*     try {
-            reader = new BufferedReader(new FileReader(namentxt));
-            String TextUsername = reader.readLine();
-            //login
-            jLabel2.setText(TextUsername);
-
-            //PW
-            ActPath = "\\launcher\\Passwort.txt";
-            String PWtxt = Path(ActPath);
-            BufferedWriter out3 = new BufferedWriter(new FileWriter(PWtxt, true));
-            BufferedReader reader3 = null;
-            reader3 = new BufferedReader(new FileReader(PWtxt));
-            String TextPasswort = reader3.readLine();
-            //eingabe fertig
-            String Value1;
-            Value1 = TextUsername;
-            if (Value1 != null) {
-                jPanel1.setVisible(false);
-                jLabel10.setVisible(true);
-            }
-            else if (Value1 == null) {
-                jLabel2.setText("");
-                jLabel10.setLocation(1, 1);
-                jLabel10.setSize(1, 1);
-                jLabel10.setVisible(false);
-                jPanel1.setLocation(221,272);
-                jPanel1.setVisible(true);
-                jPanel1.setLocation(221,272);
-                jPanel1.setVisible(true);
-                System.out.println("Gesetzt");
-            }
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException ex) {
-                Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-*/
         //enter knopf beim usernamen
         jTextField1.addActionListener(new ActionListener() {
             @Override
@@ -156,6 +119,42 @@ public class DeincraftUI extends javax.swing.JFrame {
         setIconImage(i);
         setTitle("Deincraft Launcher");
         //537 168
+        
+        //Dualhotbar
+        File DualhotBar = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\dualhotbar-1.7.10-1.6.jar");
+        if(DualhotBar.exists() == true) {
+            DualhotBaron = true;
+            System.out.println("True");
+            jButton5.setBackground(Color.green);
+        } else {
+            DualhotBaron = false;
+            System.out.println("False");
+            jButton5.setBackground(Color.red);
+        }
+        File Optifine = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\OptiFine_1.7.10_HD_U_B6.jar");
+        if(Optifine.exists() == true) {
+            Optifineon = true;
+            System.out.println("True");
+            jButton4.setBackground(Color.green);
+        } else {
+            Optifineon = false;
+            System.out.println("False");
+            jButton4.setBackground(Color.red);
+        }
+        File Shader = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        if(Shader.exists() == true) {
+            Shaderon = true;
+            System.out.println("True");
+            jButton7.setBackground(Color.green);
+        } else {
+            Shaderon = false;
+            System.out.println("False");
+            jButton7.setBackground(Color.red);
+        }
+        
+            jFrame1.setUndecorated(true);
+            jFrame1.setLocation(1350, 300);
+        
     }
 
     /**
@@ -167,6 +166,12 @@ public class DeincraftUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jLabel11 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -184,6 +189,77 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Settings");
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(51, 255, 51));
+        jButton4.setText("Optifine");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(51, 255, 51));
+        jButton5.setText("DualhotBar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setBackground(new java.awt.Color(255, 102, 102));
+        jButton7.setText("Shader");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton7))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Deincraft Launcher");
@@ -298,14 +374,14 @@ public class DeincraftUI extends javax.swing.JFrame {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/domain (2)_1.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel1MouseMoved(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
 
@@ -376,6 +452,18 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 204, 0));
         jLabel8.setText("Version:");
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/JavaApplication1/489749-Gear-512.png"))); // NOI18N
+        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel9MouseMoved(evt);
+            }
+        });
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -385,35 +473,37 @@ public class DeincraftUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2))
-                                .addGap(70, 151, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(211, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(220, 220, 220)
                                 .addComponent(jLabel10))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel8)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(89, 89, 89)
+                                        .addComponent(jLabel9))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2))
+                                .addGap(70, 151, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -427,6 +517,8 @@ public class DeincraftUI extends javax.swing.JFrame {
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,6 +621,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel1.setSize(41, 41);
         jButton8.setSize(41, 41);
         jLabel10.setSize(295,111);
+        jLabel9.setSize(41, 41);
     }//GEN-LAST:event_formMouseMoved
 
     private void jButton8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseMoved
@@ -555,6 +648,7 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
+        jFrame1.setVisible(false);
         if (Startenabled == false) {
             return;
         }
@@ -635,6 +729,80 @@ public class DeincraftUI extends javax.swing.JFrame {
       // TODO add your handling code here:
         Closing.close();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+            jFrame1.setVisible(true);
+            jFrame1.pack();
+        
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseMoved
+        // TODO add your handling code here:
+        jLabel9.setSize(43, 43);
+    }//GEN-LAST:event_jLabel9MouseMoved
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jFrame1.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        File Optifinean = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\OptiFine_1.7.10_HD_U_B6.jar");
+        File Optifineaus = new File ("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\OptiFine_1.7.10_HD_U_B6.jar");
+        try {
+        if (Optifineon == true) {
+            Optifinean.renameTo(Optifineaus);
+            Optifineon = false;
+            jButton4.setBackground(Color.red);
+        } else {
+            Optifineaus.renameTo(Optifinean);
+            Optifineon = true;
+            jButton4.setBackground(Color.green);
+        }
+        } catch (Exception e)
+            {e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        File DualhotBaran = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\dualhotbar-1.7.10-1.6.jar");
+        File DualhotBaraus = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\dualhotbar-1.7.10-1.6.jar");
+        try {
+        if (DualhotBaron == true) {
+            DualhotBaran.renameTo(DualhotBaraus);
+            DualhotBaron = false;
+            jButton5.setBackground(Color.red);
+        } else {
+            DualhotBaraus.renameTo(DualhotBaran);
+            DualhotBaron = true;
+            jButton5.setBackground(Color.green);
+        }
+        } catch (Exception e)
+            {e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        File Shaderan = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        File Shaderaus = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        try {
+        if (Shaderon == true) {
+            Shaderan.renameTo(Shaderaus);
+            Shaderon = false;
+            jButton7.setBackground(Color.red);
+        } else {
+            Shaderaus.renameTo(Shaderan);
+            Shaderon = true;
+            jButton7.setBackground(Color.green);
+        }
+        } catch (Exception e)
+            {e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
     //int i = 1;
 
     /**
@@ -683,10 +851,16 @@ public class DeincraftUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -694,6 +868,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
