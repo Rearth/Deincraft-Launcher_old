@@ -10,6 +10,7 @@ import static deincraft.util.Path.DCpath;
 import deincraft.util.Text;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -40,9 +42,10 @@ public class DeincraftUI extends javax.swing.JFrame {
     public static String Password;
     public static boolean Startenabled = true;
     String RAM;
-        boolean Optifineon;
-        boolean DualhotBaron;
-        boolean Shaderon;
+    boolean Optifineon;
+    boolean DualhotBaron;
+    boolean Shaderon;
+    public static boolean OptionEnabled = true;
 
     /**
      * Creates new form DeincraftUI
@@ -121,7 +124,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         //537 168
         
         //Dualhotbar
-        File DualhotBar = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\dualhotbar-1.7.10-1.6.jar");
+        File DualhotBar = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar");
         if(DualhotBar.exists() == true) {
             DualhotBaron = true;
             System.out.println("True");
@@ -131,7 +134,7 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton5.setBackground(Color.red);
         }
-        File Optifine = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\OptiFine_1.7.10_HD_U_B6.jar");
+        File Optifine = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
         if(Optifine.exists() == true) {
             Optifineon = true;
             System.out.println("True");
@@ -141,7 +144,7 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton4.setBackground(Color.red);
         }
-        File Shader = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        File Shader = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar");
         if(Shader.exists() == true) {
             Shaderon = true;
             System.out.println("True");
@@ -151,9 +154,10 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton7.setBackground(Color.red);
         }
-        
+            Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
             jFrame1.setUndecorated(true);
-            jFrame1.setLocation(1350, 300);
+            jFrame1.setAlwaysOnTop(true);
+            jFrame1.setLocation((dim.width / 2), 300);
         
     }
 
@@ -422,6 +426,11 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(2, 255, 3));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/START.png"))); // NOI18N
+        jLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel10MouseMoved(evt);
+            }
+        });
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -431,11 +440,6 @@ public class DeincraftUI extends javax.swing.JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jLabel10MouseReleased(evt);
-            }
-        });
-        jLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel10MouseMoved(evt);
             }
         });
 
@@ -453,14 +457,14 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel8.setText("Version:");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/JavaApplication1/489749-Gear-512.png"))); // NOI18N
-        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel9MouseMoved(evt);
-            }
-        });
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
+            }
+        });
+        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel9MouseMoved(evt);
             }
         });
 
@@ -673,13 +677,16 @@ public class DeincraftUI extends javax.swing.JFrame {
                 Text.write(DCpath() + "launcher/RAM.txt", RAM);
                 
                 System.out.println("Starten....");
+                OptionEnabled = false;
+                jFrame1.setVisible(false);
                 Username = jLabel2.getText();
                 deincraft.login.TCPautoLogin.main(jLabel2.getText(), Password, true); 
                 deincraft.start.Start.main(new String[]{Username, RAM});
                 
             } catch (IOException ex) {
                 Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-                
+                OptionEnabled = false;
+                jFrame1.setVisible(false);
                 System.out.println("Starten....");
                 Username = jLabel2.getText();
                 deincraft.start.Start.main(new String[]{Username, RAM});
@@ -732,9 +739,12 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
+        if(OptionEnabled == true){
             jFrame1.setVisible(true);
             jFrame1.pack();
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Minecraft muss zum ändern der einstellungen Geschlossen sein");
+        } 
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseMoved
@@ -749,8 +759,8 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        File Optifinean = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\OptiFine_1.7.10_HD_U_B6.jar");
-        File Optifineaus = new File ("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\OptiFine_1.7.10_HD_U_B6.jar");
+        File Optifinean = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
+        File Optifineaus = new File (DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
         try {
         if (Optifineon == true) {
             Optifinean.renameTo(Optifineaus);
@@ -768,8 +778,8 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        File DualhotBaran = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\dualhotbar-1.7.10-1.6.jar");
-        File DualhotBaraus = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\dualhotbar-1.7.10-1.6.jar");
+        File DualhotBaran = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar");
+        File DualhotBaraus = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar.off");
         try {
         if (DualhotBaron == true) {
             DualhotBaran.renameTo(DualhotBaraus);
@@ -787,8 +797,8 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        File Shaderan = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\mods\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
-        File Shaderaus = new File("C:\\Users\\DavidW\\AppData\\Roaming\\.deincraft\\modpacks\\tekkitmain\\modsoff\\ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        File Shaderan = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        File Shaderaus = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar.off");
         try {
         if (Shaderon == true) {
             Shaderan.renameTo(Shaderaus);

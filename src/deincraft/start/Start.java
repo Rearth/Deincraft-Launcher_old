@@ -59,6 +59,7 @@ public class Start
     }
     my.JavaApplication1.DeincraftUI.Startenabled = true;
     my.JavaApplication1.DeincraftUI.jLabel10.enable(true);
+    my.JavaApplication1.DeincraftUI.OptionEnabled = false;
     my.JavaApplication1.Closing.canclose = true;
   }
   
