@@ -11,6 +11,7 @@ import deincraft.util.Text;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -26,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -691,6 +693,7 @@ public class DeincraftUI extends javax.swing.JFrame {
                 deincraft.start.Start.main(new String[]{Username, RAM});
             }
         }
+        setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseMoved
