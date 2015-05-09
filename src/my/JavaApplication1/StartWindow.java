@@ -21,11 +21,13 @@ public class StartWindow {
     public static void main(String[] Args) {
         fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenster.setSize(608, 80);
+        fenster.setUndecorated(true);
         JPanel Panel = new javax.swing.JPanel();
         Label LeftProg = new Label("");
         Panel.add(LeftProg);
         Panel.setSize(120, 30);
         Panel.setLocation(10, 10);
+        Panel.setBackground(Color.black);
         fenster.getContentPane().add(Panel);
         fenster.setVisible(true);
         LeftProg.setVisible(false);
@@ -34,7 +36,9 @@ public class StartWindow {
         LeftProg.setLocation(10, 5);
         LeftProg.setVisible(true);
         fenster.setAlwaysOnTop(true);
-        LeftProg.setText("Launcher wird Gestarten. Bitte warten...");
+        LeftProg.setText("Deincraft Launcher wird Gestartet. Bitte warten...");
+        LeftProg.setForeground(Color.green);
+        LeftProg.setFont(new java.awt.Font("MineCrafter 2.0", 1, 15));
         fenster.pack();
         fenster.setVisible(true);
         fenster.setLocationRelativeTo(null);
