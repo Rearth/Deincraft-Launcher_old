@@ -25,11 +25,18 @@ public class load {
             if (username == null || Password == null) {
                 return false;
             }
-            if (deincraft.auth.wp_login.main(username, Password) == true){
+            try {
+                if (deincraft.auth.wp_login.main(username, Password) == true){
+                    my.JavaApplication1.DeincraftUI.Username = username;
+                    my.JavaApplication1.DeincraftUI.Password = Password;
+                    return true;
+                }
+            } catch (Exception e) {
                 my.JavaApplication1.DeincraftUI.Username = username;
                 my.JavaApplication1.DeincraftUI.Password = Password;
                 return true;
             }
+
         }
         usertxt.createNewFile();
         passtxt.createNewFile();

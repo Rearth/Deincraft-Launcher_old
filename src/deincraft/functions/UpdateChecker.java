@@ -15,6 +15,7 @@ import java.lang.management.ManagementFactory;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,10 +30,21 @@ public class UpdateChecker {
         if (Files.notExists(pfad)) {
             file.mkdirs();
         }
-        
-        launcher.main(null);
-        assets.main(null);
-        cache.main(null);
-        gamedata.main(null);
+        try {
+            launcher.main(null);
+            assets.main(null);
+            cache.main(null);
+            gamedata.main(null);
+        } catch (Exception e) {
+            System.out.println("Update überprüfung Fehlgeschlagen.");
+            JOptionPane.showMessageDialog(null, "Update Überpfüfung Fehlgeschlagen. \n\rMöglicherweise keine Internet Verbindung?");
+            File gamedata = new File(DCpath() + "modpacks/tekkitmain/bin");
+            if (gamedata.exists()) {
+                JOptionPane.showMessageDialog(null, "Starte ohne Überprüfung");
+            } else {
+                JOptionPane.showMessageDialog(null, "Launcher konnte nicht gestartet werden.");
+                System.exit(2);
+            }
+        }
     }
 }

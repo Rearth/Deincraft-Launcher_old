@@ -13,7 +13,12 @@ import java.io.IOException;
  */
 public class Changelog {
     public static String main() throws IOException{
-        String changelog = (linkToString.download("https://www.dropbox.com/s/h9umo5a0yurqyf0/changelog.txt?dl=1"));
+        String changelog = null;
+        try {
+            changelog = (linkToString.download("https://www.dropbox.com/s/h9umo5a0yurqyf0/changelog.txt?dl=1"));
+        } catch (Exception e) {
+            changelog = ("Offline Mode");
+        }         
         return ("<html><body>" + changelog + "</body></html>");
     }
 }

@@ -22,16 +22,12 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 
 /**
  *
@@ -57,6 +53,9 @@ public class DeincraftUI extends javax.swing.JFrame {
         choice1.add("2560");
         choice1.add("3072"); */
         //start hier
+        StartWindow.main(null);
+        StartWindow.fenster.setVisible(true);
+        //StartWindow.fenster.pack();
         BufferedImage I;
         I = ImageIO.read(getClass().getResource("/Images/laucherhintergund.png"));
         setContentPane(new JLabel(new ImageIcon(I)));
@@ -153,12 +152,12 @@ public class DeincraftUI extends javax.swing.JFrame {
             Shaderon = false;
             System.out.println("False");
             jButton7.setBackground(Color.red);
-        }
-            Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-            jFrame1.setUndecorated(true);
-            jFrame1.setAlwaysOnTop(true);
-            jFrame1.setLocation((dim.width / 2), 300);
-        
+        }         
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        jFrame1.setUndecorated(true);
+        jFrame1.setAlwaysOnTop(true);
+        jFrame1.setLocation((dim.width / 2), 300);
+         StartWindow.fenster.setVisible(false);
     }
 
     /**

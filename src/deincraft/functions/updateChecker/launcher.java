@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author Florian
  */
 public class launcher {
-    public static String installedlauncherversion = "2.1.0.67";
+    public static String installedlauncherversion = "2.2.0.68";
     public static void main(String[] Args) throws IOException, Exception {
         String newlauncherversion = linkToString.download("https://www.dropbox.com/s/gkd2revodu5axw4/launcher-version.txt?dl=1");
         System.out.println(installedlauncherversion);
