@@ -135,7 +135,7 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton5.setBackground(Color.red);
         }
-        File Optifine = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
+        File Optifine = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_U_B7.jar");
         if(Optifine.exists() == true) {
             Optifineon = true;
             System.out.println("True");
@@ -573,6 +573,8 @@ public class DeincraftUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
@@ -761,8 +763,8 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        File Optifinean = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
-        File Optifineaus = new File (DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
+        File Optifinean = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_U_B7.jar");
+        File Optifineaus = new File (DCpath() + "modpacks/tekkitmain/modsoff/OptiFine_1.7.10_HD_U_B7.jar");
         try {
         if (Optifineon == true) {
             Optifinean.renameTo(Optifineaus);
@@ -781,7 +783,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         File DualhotBaran = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar");
-        File DualhotBaraus = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar.off");
+        File DualhotBaraus = new File(DCpath() + "modpacks/tekkitmain/modsoff/dualhotbar-1.7.10-1.6.jar");
         try {
         if (DualhotBaron == true) {
             DualhotBaran.renameTo(DualhotBaraus);
@@ -800,7 +802,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         File Shaderan = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar");
-        File Shaderaus = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar.off");
+        File Shaderaus = new File(DCpath() + "modpacks/tekkitmain/modsoff/ShadersModCore-v2.3.28-mc1.7.10-f.jar");
         try {
         if (Shaderon == true) {
             Shaderan.renameTo(Shaderaus);
