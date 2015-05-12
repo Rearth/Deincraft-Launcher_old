@@ -126,6 +126,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         
         //Dualhotbar
         File DualhotBar = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar");
+        File DualhotBaroff = new File(DCpath() + "modpacks/tekkitmain/mods/dualhotbar-1.7.10-1.6.jar.off");
         if(DualhotBar.exists() == true) {
             DualhotBaron = true;
             System.out.println("True");
@@ -135,7 +136,13 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton5.setBackground(Color.red);
         }
+        if((!DualhotBaroff.exists()) && (!DualhotBar.exists())) {
+            jButton5.enable(false);
+            jButton5.setBackground(Color.gray);
+        }
+        
         File Optifine = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
+        File Optifineoff = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar.off");
         if(Optifine.exists() == true) {
             Optifineon = true;
             System.out.println("True");
@@ -145,7 +152,12 @@ public class DeincraftUI extends javax.swing.JFrame {
             System.out.println("False");
             jButton4.setBackground(Color.red);
         }
+        if((!Optifineoff.exists()) && (!Optifine.exists())) {
+            jButton4.enable(false);
+            jButton4.setBackground(Color.gray);
+        }
         File Shader = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar");
+        File Shaderoff = new File(DCpath() + "modpacks/tekkitmain/mods/ShadersModCore-v2.3.28-mc1.7.10-f.jar.off");
         if(Shader.exists() == true) {
             Shaderon = true;
             System.out.println("True");
@@ -154,7 +166,11 @@ public class DeincraftUI extends javax.swing.JFrame {
             Shaderon = false;
             System.out.println("False");
             jButton7.setBackground(Color.red);
-        }         
+        }     
+        if((!Shaderoff.exists()) && (!Shader.exists())) {
+            jButton7.enable(false);
+            jButton7.setBackground(Color.gray);
+        }
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         jFrame1.setUndecorated(true);
         jFrame1.setAlwaysOnTop(true);
@@ -764,19 +780,26 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         File Optifinean = new File(DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
-        File Optifineaus = new File (DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar");
+        File Optifineaus = new File (DCpath() + "modpacks/tekkitmain/mods/OptiFine_1.7.10_HD_B7.jar.off");
         try {
         if (Optifineon == true) {
             Optifinean.renameTo(Optifineaus);
-            Optifineon = false;
-            jButton4.setBackground(Color.red);
         } else {
             Optifineaus.renameTo(Optifinean);
-            Optifineon = true;
-            jButton4.setBackground(Color.green);
         }
         } catch (Exception e)
             {e.printStackTrace();
+        } finally {
+            if(Optifinean.exists()) {
+                Optifineon = true;
+                jButton4.setBackground(Color.green);
+            } else if (Optifineaus.exists()){
+                Optifineon = false;
+                jButton4.setBackground(Color.red);
+            } else {
+                jButton4.enable(false);
+                jButton4.setBackground(Color.gray);
+            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -787,15 +810,22 @@ public class DeincraftUI extends javax.swing.JFrame {
         try {
         if (DualhotBaron == true) {
             DualhotBaran.renameTo(DualhotBaraus);
-            DualhotBaron = false;
-            jButton5.setBackground(Color.red);
         } else {
             DualhotBaraus.renameTo(DualhotBaran);
-            DualhotBaron = true;
-            jButton5.setBackground(Color.green);
         }
-        } catch (Exception e)
-            {e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();        
+        }finally {
+            if(DualhotBaran.exists()) {
+                DualhotBaron = true;
+                jButton5.setBackground(Color.green);
+            } else if (DualhotBaraus.exists()){
+                DualhotBaron = false;
+                jButton5.setBackground(Color.red);
+            } else {
+                jButton5.enable(false);
+                jButton5.setBackground(Color.gray);
+            }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -806,15 +836,22 @@ public class DeincraftUI extends javax.swing.JFrame {
         try {
         if (Shaderon == true) {
             Shaderan.renameTo(Shaderaus);
-            Shaderon = false;
-            jButton7.setBackground(Color.red);
         } else {
             Shaderaus.renameTo(Shaderan);
-            Shaderon = true;
-            jButton7.setBackground(Color.green);
         }
-        } catch (Exception e)
-            {e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(Shaderan.exists()) {
+                Shaderon = true;
+                jButton7.setBackground(Color.green);
+            } else if (Shaderaus.exists()){
+                Shaderon = false;
+                jButton7.setBackground(Color.red);
+            } else {
+                jButton5.enable(false);
+                jButton7.setBackground(Color.gray);
+            }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
     //int i = 1;
