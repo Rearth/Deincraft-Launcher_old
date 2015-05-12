@@ -21,8 +21,20 @@ import java.io.IOException;
 public class gamedata {
     public static void main(String[] Args) throws IOException, Exception {
         File gamedataVersion = new File(DCpath() + "launcher/gamedata-version.txt");
+        File modpacks = new File(DCpath() + "modpacks");
+        File tekkitmain = new File(DCpath() + "modpacks/tekkitmain");
         if (!gamedataVersion.exists()) {
            gamedataVersion.createNewFile();
+        }
+        try {
+            modpacks.mkdir();
+        } catch (Exception ex){
+            
+        }
+        try {
+            tekkitmain.mkdir();
+        } catch (Exception ex){
+            
         }
         String newgamedataversion = linkToString.download("https://www.dropbox.com/s/cuaog9ht7ub4aik/gamedata-version.txt?dl=1");
         String installedgamedataversion = Text.read(gamedataVersion.toString());
@@ -32,7 +44,8 @@ public class gamedata {
             //Download.main("https://onedrive.live.com/download.aspx?resid=857343502640EB6C!680&authkey=!AHWa0Z-oYKwm9v4&ithint=file%2czip", DCpath() + "gamedata.zip", true);
             File directory = new File(DCpath() + "modpacks/tekkitmain/mods");
             deleteDirectory(new File(DCpath() + "modpacks/tekkitmain/mods"));
-            ZipArchiveExtractor.main(DCpath() + "gamedata.zip",DCpath());
+            
+            ZipArchiveExtractor.main(DCpath() + "gamedata.zip",DCpath() + "modpacks/tekkitmain/");
             Text.write(gamedataVersion.toString(), newgamedataversion);
         }
     }    
