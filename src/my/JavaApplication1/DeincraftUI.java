@@ -443,11 +443,6 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(2, 255, 3));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/START.png"))); // NOI18N
-        jLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel10MouseMoved(evt);
-            }
-        });
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -457,6 +452,11 @@ public class DeincraftUI extends javax.swing.JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jLabel10MouseReleased(evt);
+            }
+        });
+        jLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel10MouseMoved(evt);
             }
         });
 
@@ -711,7 +711,7 @@ public class DeincraftUI extends javax.swing.JFrame {
                 deincraft.start.Start.main(new String[]{Username, RAM});
             }
         }
-        setState(JFrame.ICONIFIED);
+       // setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseMoved
