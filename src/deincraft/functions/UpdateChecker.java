@@ -9,6 +9,7 @@ import deincraft.functions.updateChecker.assets;
 import deincraft.functions.updateChecker.cache;
 import deincraft.functions.updateChecker.gamedata;
 import deincraft.functions.updateChecker.launcher;
+import deincraft.functions.updateChecker.runtime;
 import static deincraft.util.Path.DCpath;
 import java.io.File;
 import java.lang.management.ManagementFactory;
@@ -35,6 +36,7 @@ public class UpdateChecker {
             assets.main(null);
             cache.main(null);
             gamedata.main(null);
+            runtime.main(null);
         } catch (Exception e) {
             System.out.println("Update überprüfung Fehlgeschlagen.");
             JOptionPane.showMessageDialog(null, "Update Überpfüfung Fehlgeschlagen. \n\rMöglicherweise keine Internet Verbindung?");

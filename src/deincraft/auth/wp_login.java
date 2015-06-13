@@ -20,8 +20,8 @@ public class wp_login {
  static String result;   
   public static boolean main( String username, String password ) throws MalformedURLException, IOException
   {
-        String body = "log=" + username + "&pwd=" + password + "&wp- submit=Log+In&redirect_to=\"http://deincraft-tekkit.tk\"&wordpress_test_cookie=1";
-        URL url = new URL( "http://www.deincraft-tekkit.tk/wp-login.php" );
+        String body = "log=" + username + "&pwd=" + password + "&wp- submit=Log+In&redirect_to=\"http://deincraft-tekkit.de\"&wordpress_test_cookie=1";
+        URL url = new URL( "http://www.deincraft-tekkit.de/wp-login.php" );
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod( "POST" );
         connection.setDoInput( true );
@@ -59,7 +59,7 @@ public class wp_login {
             }
             result = null;
             System.out.println("Fehler beim login");
-            return false;
+            return true;
         } else {
             result = null;
             System.out.println("Erfolgreich eingeloggt");

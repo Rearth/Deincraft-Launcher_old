@@ -6,7 +6,9 @@
 package deincraft.functions.updateChecker;
 
 import deincraft.functions.linkToString;
+import static deincraft.functions.updateChecker.launcher.installedlauncherversion;
 import deincraft.other.Download;
+import deincraft.other.ZipArchiveExtractor;
 import deincraft.util.OperatingSystem;
 import static deincraft.util.Path.DCpath;
 import java.io.File;
@@ -16,23 +18,23 @@ import java.io.IOException;
  *
  * @author Florian
  */
-public class launcher {
-    public static String installedlauncherversion = "2.3.0.75";
+public class runtime {
     public static void main(String[] Args) throws IOException, Exception {
-        String newlauncherversion = linkToString.download("https://www.dropbox.com/s/gkd2revodu5axw4/launcher-version.txt?dl=1");
-        System.out.println(installedlauncherversion);
-        if(!newlauncherversion.equals(installedlauncherversion)) {
+        File ownRT = new File(DCpath() + "runtime/jre-x64/1.8.0_25/bin/javaw.exe");
+        if (ownRT.exists()) {
+          return;  
+        } 
+       // System.out.println(System.getProperty("os.arch"));
+        if((OperatingSystem.getOperatingSystem() == OperatingSystem.WINDOWS) && ((System.getProperty("os.arch").contains("64")) || OperatingSystem.getJavaDir().contains("(x86)"))) {
             //Starte Update wenn versionen nicht gleich. Update erfprderlich.
             String jarfile = new File(launcher.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
             System.out.println(jarfile);
-            Download.main("https://www.dropbox.com/s/yy7brh9da534xp1/deincraft_tekkit_updater.jar?dl=1", DCpath(), "updater.jar");
+            Download.main("https://www.dropbox.com/s/0tkszqu4qli7wug/runtime.zip?dl=1", DCpath(), "runtime.zip");
             try {
-                ProcessBuilder pb = new ProcessBuilder(OperatingSystem.getJavaDir(), "-jar", DCpath() + "updater.jar", jarfile);
-                pb.start();
+                ZipArchiveExtractor.main(DCpath() + "runtime.zip",DCpath());
             } catch (Exception e) {
-                System.out.println("ausführen der Datei");
+                System.out.println("Runtime Enpacken Fehler!");
             }
-            System.exit(0);
         }  
     }
 }

@@ -11,6 +11,7 @@ package deincraft.util;
  */
 import java.io.File;
 import java.util.Locale;
+import deincraft.util.Path;
 
 public enum OperatingSystem
 {
@@ -30,8 +31,13 @@ public enum OperatingSystem
   {
     String separator = System.getProperty("file.separator");
     String path = System.getProperty("java.home") + separator + "bin" + separator;
+    File ownRT = new File(Path.DCpath() + "runtime/jre-x64/1.8.0_25/bin/javaw.exe");
     System.out.println(path);
-    if ((getOperatingSystem() == WINDOWS) && (new File(path + "javaw.exe").isFile())) {
+    if ((getOperatingSystem() == WINDOWS) && (ownRT.exists()))
+    {
+        System.out.println("Starte mit eigener Runtime");
+        return Path.DCpath() + "runtime/jre-x64/1.8.0_25/bin/javaw.exe";
+    } else if ((getOperatingSystem() == WINDOWS) && (new File(path + "javaw.exe").isFile())) {
       return path + "javaw.exe";
     }
     return path + "java";
