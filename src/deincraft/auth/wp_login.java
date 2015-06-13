@@ -59,7 +59,7 @@ public class wp_login {
             }
             result = null;
             System.out.println("Fehler beim login");
-            return true;
+            return false;
         } else {
             result = null;
             System.out.println("Erfolgreich eingeloggt");
