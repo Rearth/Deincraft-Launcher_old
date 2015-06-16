@@ -756,7 +756,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         // TODO add your handling code here
         try {
 
-            Desktop.getDesktop().browse(new URI("ts3server://ts.deincraft-tekkit.tk"));
+            Desktop.getDesktop().browse(new URI("ts3server://109.230.231.69:9988"));
         } catch (URISyntaxException ex) {
             Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -832,7 +832,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Desktop desktop = java.awt.Desktop.getDesktop();
-            Desktop.getDesktop().browse(new URI("http://www.deincraft-tekkit.tk/"));
+            Desktop.getDesktop().browse(new URI("http://www.deincraft-tekkit.de/"));
         } catch (URISyntaxException ex) {
             Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -919,7 +919,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         try {
             Desktop desktop = java.awt.Desktop.getDesktop();
-            Desktop.getDesktop().browse(new URI("http://www.deincraft-tekkit.tk/registrieren/"));
+            Desktop.getDesktop().browse(new URI("http://www.deincraft-tekkit.de/registrieren/"));
         } catch (URISyntaxException ex) {
             Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
