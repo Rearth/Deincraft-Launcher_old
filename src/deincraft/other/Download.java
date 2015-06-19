@@ -156,6 +156,7 @@ public class Download {
             JPanel Panel = new javax.swing.JPanel();
             Label LeftProg = new Label("");
             Label RightProg = new Label("");
+            Label Info = new Label("");
             float test = 1;
             float test2 = 1024;
             float gesamt = 0;
@@ -164,22 +165,29 @@ public class Download {
             fenster.setSize(608, 80);
             Panel.add(LeftProg);
             Panel.add(RightProg);
+            Panel.add(Info);
             Panel.setSize(120, 30);
             Panel.setLocation(10, 10);
             fenster.getContentPane().add(Panel);
+            fenster.setUndecorated(true);
             fenster.setVisible(true);
             LeftProg.setVisible(false);
             RightProg.setVisible(false);
+            Info.setVisible(false);
             int leftS = 1;
             int rightS = 570 - leftS;
             LeftProg.setBackground(Color.green);
             RightProg.setBackground(Color.red);
+            Info.setBackground(Color.gray);
             LeftProg.setSize(leftS,30);
             RightProg.setSize(rightS,30);
+            Info.setSize(100,20);
+            Info.setLocation(10, 40);
             LeftProg.setLocation(10, 5);
             RightProg.setLocation( 11, 5 );
             LeftProg.setVisible(true);
             RightProg.setVisible(true);
+            Info.setVisible(true);
             
             RightProg.setText(" Setting Connection");
             
@@ -198,6 +206,7 @@ public class Download {
         is = uCon.getInputStream();
         float komplettsize = Url.openConnection().getContentLength();
         String filename = "Unbekannt";
+        String progressall = null;
         int kompsize = (int) komplettsize / 1048576;
         
         buf = new byte[size];
@@ -215,8 +224,8 @@ public class Download {
                 gesamt3 = (int) gesamt2;
                 gesamt2 = gesamt3;
                 gesamt2 /= 100;
-                fenster.setTitle("Download: " + (int)gesamt2 + "%  " + aktsize +"MB" + "/" + kompsize + "MB");
-                
+                progressall = (int)gesamt2 + "%  " + aktsize +"MB" + "/" + kompsize + "MB";
+                Info.setText(progressall);
                 leftS = (int)gesamt2 * 6;
                 if ( leftS >= 599) {
                     leftS = 600;
