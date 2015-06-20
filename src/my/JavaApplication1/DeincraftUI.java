@@ -43,9 +43,6 @@ public class DeincraftUI extends javax.swing.JFrame {
     boolean Optifineon;
     boolean DualhotBaron;
     boolean Shaderon;
-    boolean Optifineonvan;
-    boolean DualhotBaronvan;
-    boolean Shaderonvan;
     public static boolean OptionEnabled = true;
 
     /**
@@ -174,97 +171,11 @@ public class DeincraftUI extends javax.swing.JFrame {
             jButton7.enable(false);
             jButton7.setBackground(Color.gray);
         }
-        
-        
-        //Vanilla
-        //Dualhotbar
-        File DualhotBarvan = new File(DCpath() + "modpacks/vanilla/mods/dualhotbar-1.7.10-1.6.jar");
-        File DualhotBaroffvan = new File(DCpath() + "modpacks/vanilla/mods/dualhotbar-1.7.10-1.6.jar.off");
-        if(DualhotBarvan.exists() == true) {
-            DualhotBaronvan = true;
-            System.out.println("True");
-            jButton11.setBackground(Color.green);
-        } else {
-            DualhotBaronvan = false;
-            System.out.println("False");
-            jButton11.setBackground(Color.red);
-        }
-        if((!DualhotBaroffvan.exists()) && (!DualhotBarvan.exists())) {
-            jButton11.enable(false);
-            jButton11.setBackground(Color.gray);
-        }
-        
-        File Optifinevan = new File(DCpath() + "modpacks/vanilla/mods/OptiFine_1.7.10_HD_U_B7.jar");
-        File Optifineoffvan = new File(DCpath() + "modpacks/vanilla/mods/OptiFine_1.7.10_HD_U_B7.jar.off");
-        if(Optifinevan.exists() == true) {
-            Optifineonvan = true;
-            System.out.println("True");
-            jButton10.setBackground(Color.green);
-        } else {
-            Optifineonvan = false;
-            System.out.println("False");
-            jButton10.setBackground(Color.red);
-        }
-        if((!Optifineoffvan.exists()) && (!Optifinevan.exists())) {
-            jButton10.enable(false);
-            jButton10.setBackground(Color.gray);
-        }
-        File Shadervan = new File(DCpath() + "modpacks/vanilla/mods/voxelmapNoRadar-1.7.10-1.0.jar");
-        File Shaderoffvan = new File(DCpath() + "modpacks/vanilla/mods/voxelmapNoRadar-1.7.10-1.0.jar.off");
-        if(Shadervan.exists() == true) {
-            Shaderonvan = true;
-            System.out.println("True");
-            jButton12.setBackground(Color.green);
-        } else {
-            Shaderonvan = false;
-            System.out.println("False");
-            jButton12.setBackground(Color.red);
-        }     
-        if((!Shaderoffvan.exists()) && (!Shadervan.exists())) {
-            jButton12.enable(false);
-            jButton12.setBackground(Color.gray);
-        }
-        
-        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         jFrame1.setUndecorated(true);
         jFrame1.setAlwaysOnTop(true);
         jFrame1.setLocation((dim.width / 2), 300);
-        jFrame2.setUndecorated(true);
-        jFrame2.setAlwaysOnTop(true);
-        jFrame2.setLocation((dim.width / 2), 300);
          StartWindow.fenster.setVisible(false);
-         
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("War".equals(selected)) {
-        jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 378);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));
-        }
-        if ("Tekkit".equals(selected)) {
-            jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 378);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-        }
-        if ("Classic".equals(selected)) {
-        jLabel13.setLocation(145, 378);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-        }
     }
 
     /**
@@ -282,12 +193,6 @@ public class DeincraftUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jFrame2 = new javax.swing.JFrame();
-        jLabel12 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -306,9 +211,7 @@ public class DeincraftUI extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -380,93 +283,22 @@ public class DeincraftUI extends javax.swing.JFrame {
                 .addComponent(jButton7))
         );
 
-        jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setText("Settings");
-
-        jButton9.setBackground(new java.awt.Color(255, 51, 51));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setBackground(new java.awt.Color(51, 255, 51));
-        jButton10.setText("Optifine");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton11.setBackground(new java.awt.Color(51, 255, 51));
-        jButton11.setText("DualhotBar");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
-        jButton12.setBackground(new java.awt.Color(255, 102, 102));
-        jButton12.setText("Minimap");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
-        jFrame2.getContentPane().setLayout(jFrame2Layout);
-        jFrame2Layout.setHorizontalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrame2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jFrame2Layout.createSequentialGroup()
-                        .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jFrame2Layout.setVerticalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton12))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Deincraft Launcher");
         setBackground(new java.awt.Color(51, 255, 0));
         setForeground(java.awt.Color.green);
         setMinimumSize(new java.awt.Dimension(691, 390));
         setResizable(false);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
-        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 51));
         jPanel1.setAutoscrolls(true);
@@ -547,9 +379,6 @@ public class DeincraftUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 102, 346, 99));
-        jPanel1.getAccessibleContext().setAccessibleName("");
-
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/facebook-symbol_1.png"))); // NOI18N
         jButton8.setAlignmentY(0.0F);
         jButton8.setBorder(null);
@@ -564,7 +393,6 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, -1, 41));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/domain (2)_1.png"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -577,7 +405,6 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
         jButton6.setFont(jButton6.getFont());
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/teamspeak-icon-lg.png"))); // NOI18N
@@ -594,7 +421,6 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 45, -1));
 
         jButton2.setFont(new java.awt.Font("MineCrafter 2.0", 0, 9)); // NOI18N
         jButton2.setText("Ausloggen");
@@ -605,17 +431,14 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 51, 142, 30));
 
         jLabel2.setBackground(new java.awt.Color(153, 153, 153));
         jLabel2.setFont(new java.awt.Font("MineCrafter 2.0", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(2, 255, 3));
         jLabel2.setText("Username");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 34));
 
         jLabel6.setFont(new java.awt.Font("MineCrafter 2.0", 3, 10)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(2, 255, 3));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 350, 100));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(2, 255, 3));
@@ -636,76 +459,124 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jLabel10MouseReleased(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 232, -1, 145));
 
         jLabel4.setForeground(new java.awt.Color(2, 255, 3));
         jLabel4.setText("Ram in MB:");
         jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
 
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 93, -1));
 
         jLabel8.setForeground(new java.awt.Color(0, 204, 0));
         jLabel8.setText("Version:");
-        jLabel8.setAlignmentY(0.0F);
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, 20));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/JavaApplication1/489749-Gear-512.png"))); // NOI18N
-        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel9MouseMoved(evt);
-            }
-        });
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, -1, -1));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png"))); // NOI18N
-        jLabel13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel13MouseMoved(evt);
+                jLabel9MouseMoved(evt);
             }
         });
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 385, 135, 50));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_Tekkit.png"))); // NOI18N
-        jLabel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel14MouseMoved(evt);
-            }
-        });
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LOGO_1.png"))); // NOI18N
+        jLabel12.setMaximumSize(new java.awt.Dimension(40, 50));
+        jLabel12.setMinimumSize(new java.awt.Dimension(40, 50));
+        jLabel12.setPreferredSize(new java.awt.Dimension(40, 50));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                jLabel12MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 378, 135, 50));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png"))); // NOI18N
-        jLabel15.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel15MouseMoved(evt);
-            }
-        });
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 385, 135, 50));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel9))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2))
+                                .addGap(70, 151, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(210, 210, 210)
+                                .addComponent(jLabel10)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 92, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+        );
+
+        jPanel1.getAccessibleContext().setAccessibleName("");
 
         pack();
         setLocationRelativeTo(null);
@@ -721,7 +592,6 @@ public class DeincraftUI extends javax.swing.JFrame {
         System.out.println("Gesetzt");
             String namentxtfw = (DCpath() + "launcher/username.txt");
             String PWtxtfw = (DCpath() + "launcher/password.txt");
-            
         try {
             Text.write(namentxtfw, "");
             Text.write(PWtxtfw, "");
@@ -789,38 +659,8 @@ public class DeincraftUI extends javax.swing.JFrame {
         jButton6.setSize(41, 41);
         jLabel1.setSize(41, 41);
         jButton8.setSize(41, 41);
-        jLabel10.setSize(295,136);
+        jLabel10.setSize(295,111);
         jLabel9.setSize(41, 41);
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("War".equals(selected)) {
-        jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 378);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));
-        }
-        if ("Tekkit".equals(selected)) {
-            jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 378);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-        }
-        if ("Classic".equals(selected)) {
-        jLabel13.setLocation(145, 378);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-        }
     }//GEN-LAST:event_formMouseMoved
 
     private void jButton8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseMoved
@@ -871,22 +711,12 @@ public class DeincraftUI extends javax.swing.JFrame {
             try {
                 Text.write(DCpath() + "launcher/RAM.txt", RAM);
                 
-                String selected = Text.read(DCpath() + "launcher/gamesel.txt");
-                System.out.println("Starten...." + selected);
+                System.out.println("Starten....");
                 OptionEnabled = false;
                 jFrame1.setVisible(false);
                 Username = jLabel2.getText();
-                
-                    if ("Classic".equals(selected)) {   
-                    System.out.println(selected);
-                    deincraft.start.StartClassic.main(new String[]{Username, RAM});
-                    }
-                    
-                    if ("Tekkit".equals(selected)) {  
-                    System.out.println(selected);
-                    deincraft.login.TCPautoLogin.main(jLabel2.getText(), Password, true);
-                    deincraft.start.Start.main(new String[]{Username, RAM});
-                    }
+                deincraft.login.TCPautoLogin.main(jLabel2.getText(), Password, true); 
+                deincraft.start.Start.main(new String[]{Username, RAM});
                 
             } catch (IOException ex) {
                 Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -902,7 +732,7 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     private void jLabel10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseMoved
         // TODO add your handling code here:
-        jLabel10.setSize(350,150);
+        jLabel10.setSize(320,135);
         
     }//GEN-LAST:event_jLabel10MouseMoved
 
@@ -924,7 +754,7 @@ public class DeincraftUI extends javax.swing.JFrame {
             Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+        }        // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void jLabel7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseMoved
@@ -946,26 +776,11 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         if(OptionEnabled == true){
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("Tekkit".equals(selected)) {
             jFrame1.setVisible(true);
             jFrame1.pack();
-        }
-        if ("Classic".equals(selected)) {
-            jFrame2.setVisible(true);
-            jFrame2.pack();
-        }}
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Minecraft muss zum ändern der einstellungen Geschlossen sein");
-        }
-        
-        
-                
+        } 
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseMoved
@@ -1056,155 +871,10 @@ public class DeincraftUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jLabel13MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseMoved
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
-        jLabel13.setLocation(145, 378);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-    }//GEN-LAST:event_jLabel13MouseMoved
-
-    private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
-        // TODO add your handling code here:        
-        jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 378);
-        jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
-    }//GEN-LAST:event_jLabel14MouseMoved
-
-    private void jLabel15MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseMoved
-        // TODO add your handling code here:
-        jLabel13.setLocation(145, 385);
-        jLabel14.setLocation(280, 385);
-        jLabel15.setLocation(10, 378);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_War.png")));
-    }//GEN-LAST:event_jLabel15MouseMoved
-
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        // TODO add your handling code here:        
-        /*String gameSelected = (DCpath() + "launcher/gamesel.txt");
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));
-        try {
-            Text.write(gameSelected, "");
-            Text.write(gameSelected, "War");
-            } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_jLabel15MouseClicked
-
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        // TODO add your handling code here:        
-        String gameSelected = (DCpath() + "launcher/gamesel.txt");  
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));
-        try {
-            Text.write(gameSelected, "");
-            Text.write(gameSelected, "Classic");
-            } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabel13MouseClicked
-
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:                
-        String gameSelected = (DCpath() + "launcher/gamesel.txt");
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));
-        try {
-            Text.write(gameSelected, "");
-            Text.write(gameSelected, "Tekkit");
-            } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabel14MouseClicked
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-        jFrame2.setVisible(false);
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Optifine_Vanilla");
-        File Optifinean = new File(DCpath() + "modpacks/vanilla/mods/OptiFine_1.7.10_HD_U_B7.jar");
-        File Optifineaus = new File (DCpath() + "modpacks/vanilla/mods/OptiFine_1.7.10_HD_U_B7.jar.off");
-        try {
-        if (Optifineonvan == true) {
-            Optifinean.renameTo(Optifineaus);
-        } else {
-            Optifineaus.renameTo(Optifinean);
-        }
-        } catch (Exception e)
-            {e.printStackTrace();
-        } finally {
-            if(Optifinean.exists()) {
-                Optifineonvan = true;
-                jButton10.setBackground(Color.green);
-            } else if (Optifineaus.exists()){
-                Optifineonvan = false;
-                jButton10.setBackground(Color.red);
-            } else {
-                jButton10.enable(false);
-                jButton10.setBackground(Color.gray);
-            }
-        }
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        File DualhotBaran = new File(DCpath() + "modpacks/vanilla/mods/dualhotbar-1.7.10-1.6.jar");
-        File DualhotBaraus = new File(DCpath() + "modpacks/vanilla/mods/dualhotbar-1.7.10-1.6.jar.off");
-        try {
-        if (DualhotBaronvan == true) {
-            DualhotBaran.renameTo(DualhotBaraus);
-        } else {
-            DualhotBaraus.renameTo(DualhotBaran);
-        }
-        } catch (Exception e){
-            e.printStackTrace();        
-        }finally {
-            if(DualhotBaran.exists()) {
-                DualhotBaronvan = true;
-                jButton11.setBackground(Color.green);
-            } else if (DualhotBaraus.exists()){
-                DualhotBaronvan = false;
-                jButton11.setBackground(Color.red);
-            } else {
-                jButton11.enable(false);
-                jButton11.setBackground(Color.gray);
-            }
-        }
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-        File Shaderan = new File(DCpath() + "modpacks/vanilla/mods/voxelmapNoRadar-1.7.10-1.0.jar");
-        File Shaderaus = new File(DCpath() + "modpacks/vanilla/mods/voxelmapNoRadar-1.7.10-1.0.jar.off");
-        try {
-        if (Shaderonvan == true) {
-            Shaderan.renameTo(Shaderaus);
-        } else {
-            Shaderaus.renameTo(Shaderan);
-        }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if(Shaderan.exists()) {
-                Shaderonvan = true;
-                jButton12.setBackground(Color.green);
-            } else if (Shaderaus.exists()){
-                Shaderonvan = false;
-                jButton12.setBackground(Color.red);
-            } else {
-                jButton12.enable(false);
-                jButton12.setBackground(Color.gray);
-            }
-        }
-    }//GEN-LAST:event_jButton12ActionPerformed
+        deincraft.start.StartClassic.main(new String[]{Username, RAM});
+    }//GEN-LAST:event_jLabel12MouseClicked
     //int i = 1;
 
     /**
@@ -1234,6 +904,7 @@ public class DeincraftUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DeincraftUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1252,9 +923,6 @@ public class DeincraftUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1262,16 +930,11 @@ public class DeincraftUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

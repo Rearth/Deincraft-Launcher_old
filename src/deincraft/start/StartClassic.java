@@ -38,7 +38,7 @@ public class StartClassic
         InputStream is = p.getInputStream();
         int i = 0;
         while ((i = is.read()) != -1) {
-          //System.out.print((char)i);
+          System.out.print((char)i);
         }
       }
       else
