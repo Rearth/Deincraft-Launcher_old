@@ -636,7 +636,7 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jLabel10MouseReleased(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 232, -1, 145));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 232, -1, 145));
 
         jLabel4.setForeground(new java.awt.Color(2, 255, 3));
         jLabel4.setText("Ram in MB:");
@@ -692,7 +692,7 @@ public class DeincraftUI extends javax.swing.JFrame {
                 jLabel14MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 385, 135, 50));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 378, 135, 50));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png"))); // NOI18N
         jLabel15.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -1056,68 +1056,14 @@ public class DeincraftUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    public String classicstate() {
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("Classic".equals(selected)) {
-            return "/Images/Header_Down_selected_Classik.png";
-        }
-        else {
-            return "/Images/Header_Down_Classik.png";
-        }
-    }
-    public String tekkitstate() {
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("Tekkit".equals(selected)) {
-            return "/Images/Header_Down_selected_Tekkit.png";
-        }
-        else {
-            return "/Images/Header_Down_Tekkit.png";
-        }
-    }
-    public String warstate() {
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("War".equals(selected)) {
-            return "/Images/Header_Down_selected_War.png";
-        }
-        else {
-            return "/Images/Header_Down_War.png";
-        }
-    }
-    
     private void jLabel13MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseMoved
         // TODO add your handling code here:
         jLabel13.setLocation(145, 378);
         jLabel14.setLocation(280, 385);
         jLabel15.setLocation(10, 385);
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("Classic".equals(selected)) {
-            jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));
-        }
-        else {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_Classik.png")));
-        }
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource(tekkitstate())));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource(warstate())));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
     }//GEN-LAST:event_jLabel13MouseMoved
 
     private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
@@ -1125,20 +1071,9 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel13.setLocation(145, 385);
         jLabel14.setLocation(280, 378);
         jLabel15.setLocation(10, 385);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource(classicstate())));
-        String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("Tekkit".equals(selected)) {
-            jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));
-        }
-        else {
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_Tekkit.png")));
-        }
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource(warstate())));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel15MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseMoved
@@ -1146,27 +1081,15 @@ public class DeincraftUI extends javax.swing.JFrame {
         jLabel13.setLocation(145, 385);
         jLabel14.setLocation(280, 385);
         jLabel15.setLocation(10, 378);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource(classicstate())));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource(tekkitstate())));String selected = "Classic";
-        try {
-            selected = Text.read(DCpath() + "launcher/gamesel.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(DeincraftUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if ("War".equals(selected)) {
-            jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));
-        }
-        else {
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_up_War.png")));
-        }
     }//GEN-LAST:event_jLabel15MouseMoved
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:        
         /*String gameSelected = (DCpath() + "launcher/gamesel.txt");
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));        
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_War.png")));
         try {
             Text.write(gameSelected, "");
             Text.write(gameSelected, "War");
@@ -1178,9 +1101,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:        
         String gameSelected = (DCpath() + "launcher/gamesel.txt");  
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));        
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Tekkit.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Classik.png")));
         try {
             Text.write(gameSelected, "");
             Text.write(gameSelected, "Classic");
@@ -1192,9 +1113,7 @@ public class DeincraftUI extends javax.swing.JFrame {
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:                
         String gameSelected = (DCpath() + "launcher/gamesel.txt");
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));        
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_Classik.png")));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Header_Down_War.png")));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/selected_Tekkit.png")));
         try {
             Text.write(gameSelected, "");
             Text.write(gameSelected, "Tekkit");
